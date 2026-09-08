@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dwhxg03e20ccu"]
+
+[ext_resource type="Script" uid="uid://dwv7ufl7a4dlv" path="res://assets/scripts/saving/options.gd" id="1_nkug2"]
+[ext_resource type="Script" uid="uid://d02g512s2tlo0" path="res://assets/scripts/buttons/home.gd" id="1_x2hje"]
+
+[node name="Menu" type="Node2D" unique_id=1992923662]
+script = ExtResource("1_nkug2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=289131369]
+
+[node name="stars_button" type="Button" parent="." unique_id=1077638009]
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = -400.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.72046703, 0.7204677, 0.72046703, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.77382356, 0, 1)
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+button_pressed = true
+text = "RENDER STARS (Desktop only)"
+flat = true
+
+[node name="trail_button" type="Button" parent="." unique_id=52102759]
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = -300.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.72046703, 0.7204677, 0.72046703, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.77382356, 0, 1)
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+button_pressed = true
+text = "RENDER TRAIL"
+flat = true
+
+[node name="path_button" type="Button" parent="." unique_id=578869887]
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = -200.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0.72046703, 0.7204677, 0.72046703, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.77382356, 0, 1)
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+button_pressed = true
+text = "RENDER PATH"
+flat = true
+
+[node name="home" type="Button" parent="." unique_id=1217504059]
+offset_left = -100.0
+offset_top = 410.0
+offset_right = 100.0
+offset_bottom = 490.0
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+flat = true
+script = ExtResource("1_x2hje")
+
+[connection signal="pressed" from="home" to="home" method="_on_pressed"]

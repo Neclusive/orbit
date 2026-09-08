@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://dirc5v61168d0"]
+
+[ext_resource type="Script" uid="uid://b313td0lsaguy" path="res://assets/scripts/pause.gd" id="1_5aext"]
+[ext_resource type="Script" uid="uid://d02g512s2tlo0" path="res://assets/scripts/buttons/home.gd" id="2_3w2km"]
+[ext_resource type="Script" uid="uid://bp1igv8dts5ml" path="res://assets/scripts/buttons/pause_button.gd" id="3_3w2km"]
+[ext_resource type="Script" uid="uid://dicq3rld6gx6s" path="res://assets/scripts/background_particles.gd" id="3_wfsp4"]
+[ext_resource type="Script" uid="uid://dw6dbn3wqcs7j" path="res://assets/scripts/path.gd" id="4_pw37s"]
+[ext_resource type="Script" uid="uid://cetace34bvkm2" path="res://assets/scripts/player.gd" id="5_k2t1h"]
+[ext_resource type="Script" uid="uid://oxsxvfqswgwb" path="res://assets/scripts/trail.gd" id="6_phsto"]
+
+[sub_resource type="Gradient" id="Gradient_7jktm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80nbo"]
+gradient = SubResource("Gradient_7jktm")
+width = 3
+height = 3
+fill_from = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e2o6t"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2000, 1000, 1000)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -335.05002
+radial_velocity_max = -315.05002
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ryrav"]
+offsets = PackedFloat32Array(0.67469877, 0.7289157, 0.78313255, 0.8373494, 0.8915663)
+colors = PackedColorArray(0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1xah"]
+gradient = SubResource("Gradient_ryrav")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_eow3j"]
+offsets = PackedFloat32Array(0.4122807, 0.9939759, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 18.892157, 0, 1, 0, 18.892157, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2o6t"]
+gradient = SubResource("Gradient_eow3j")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.2)
+
+[sub_resource type="Curve" id="Curve_7jktm"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ax5b"]
+radius = 38.0
+
+[node name="Game" type="Node2D" unique_id=392703135]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=990927116]
+process_mode = 3
+visible = false
+script = ExtResource("1_5aext")
+
+[node name="Control" type="Control" parent="PauseMenu" unique_id=779723266]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="BG_Blur" type="ColorRect" parent="PauseMenu/Control" unique_id=151369326]
+layout_mode = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 0.6117647)
+
+[node name="Paused_Text" type="Label" parent="PauseMenu/Control" unique_id=1852482413]
+layout_mode = 0
+offset_left = -200.0
+offset_top = -240.0
+offset_right = 200.0
+offset_bottom = -140.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resume_Button" type="Button" parent="PauseMenu/Control" unique_id=1438692528]
+layout_mode = 0
+offset_left = -130.0
+offset_top = 150.0
+offset_right = 130.0
+offset_bottom = 230.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "RESUME"
+flat = true
+
+[node name="home" type="Button" parent="PauseMenu/Control" unique_id=2127680297]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 280.0
+offset_right = 100.0
+offset_bottom = 350.0
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+flat = true
+script = ExtResource("2_3w2km")
+
+[node name="Background_Particles" type="GPUParticles2D" parent="." unique_id=650200823]
+visible = false
+amount = 500
+texture = SubResource("GradientTexture2D_80nbo")
+visibility_rect = Rect2(-600, -350, 1200, 700)
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_e2o6t")
+script = ExtResource("3_wfsp4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2000947135]
+
+[node name="Pause_Button" type="Button" parent="Camera2D" unique_id=442582562]
+offset_left = 850.0
+offset_top = -530.0
+offset_right = 950.0
+offset_bottom = -430.0
+theme_override_font_sizes/font_size = 48
+text = " | | "
+script = ExtResource("3_3w2km")
+
+[node name="Center" type="Sprite2D" parent="." unique_id=1812804610]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_w1xah")
+
+[node name="Arc_gen" type="Node2D" parent="Center" unique_id=1753907279]
+scale = Vector2(0.6666667, 0.6666667)
+
+[node name="Score" type="Label" parent="Center" unique_id=1147555625]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.00002
+offset_top = -114.000015
+offset_right = 5.999954
+offset_bottom = -14.000015
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Path" type="Line2D" parent="Center" unique_id=239405757]
+visible = false
+z_index = -2
+scale = Vector2(0.6666667, 0.6666667)
+closed = true
+width = 1.0
+default_color = Color(0.27450982, 0.50980395, 0.7058824, 1)
+script = ExtResource("4_pw37s")
+
+[node name="Player" type="Sprite2D" parent="Center" unique_id=119391115]
+position = Vector2(0, 66.66666)
+scale = Vector2(0.25, 0.25)
+texture = SubResource("GradientTexture2D_e2o6t")
+script = ExtResource("5_k2t1h")
+
+[node name="Trail" type="Line2D" parent="Center/Player" unique_id=1470636631]
+z_index = -1
+points = PackedVector2Array(2453.3335, -1573.3334)
+width_curve = SubResource("Curve_7jktm")
+default_color = Color(0, 1, 0, 0.9019608)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("6_phsto")
+trail_color = Color(0, 0.8, 0, 0.9019608)
+
+[node name="Area2D" type="Area2D" parent="Center/Player" unique_id=1303809088]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center/Player/Area2D" unique_id=1900805765]
+shape = SubResource("CircleShape2D_7ax5b")
+
+[connection signal="pressed" from="PauseMenu/Control/home" to="PauseMenu/Control/home" method="_on_pressed"]
+[connection signal="pressed" from="Camera2D/Pause_Button" to="PauseMenu" method="_on_pause_button_pressed"]

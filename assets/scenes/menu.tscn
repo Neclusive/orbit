@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://ht3ysc35mib8"]
+
+[ext_resource type="Script" uid="uid://xtghpdo7b7gt" path="res://assets/scripts/buttons/play_button.gd" id="1_uubjt"]
+[ext_resource type="Script" uid="uid://c31cdfjxsracd" path="res://assets/scripts/buttons/settings_button.gd" id="2_5yleq"]
+[ext_resource type="Script" uid="uid://c43cboi3kf8v3" path="res://assets/scripts/buttons/exit.gd" id="3_ylpcl"]
+[ext_resource type="Script" uid="uid://dicq3rld6gx6s" path="res://assets/scripts/background_particles.gd" id="4_cx167"]
+
+[sub_resource type="Gradient" id="Gradient_7jktm"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cx167"]
+gradient = SubResource("Gradient_7jktm")
+width = 3
+height = 3
+fill_from = Vector2(0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dolsu"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2000, 1000, 1000)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -335.05002
+radial_velocity_max = -315.05002
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_80nbo"]
+offsets = PackedFloat32Array(0.67469877, 0.7289157, 0.78313255, 0.8373494, 0.8915663)
+colors = PackedColorArray(0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ylpcl"]
+gradient = SubResource("Gradient_80nbo")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Menu" type="Node2D" unique_id=2116908789]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1471706908]
+position = Vector2(1, 0)
+
+[node name="play_button" type="Button" parent="." unique_id=562636162]
+offset_left = -96.0
+offset_right = 96.0
+offset_bottom = 72.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "PLAY"
+flat = true
+script = ExtResource("1_uubjt")
+
+[node name="settings_button" type="Button" parent="." unique_id=103400549]
+offset_left = -152.0
+offset_top = 88.0
+offset_right = 152.0
+offset_bottom = 160.0
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.9490196, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS"
+flat = true
+script = ExtResource("2_5yleq")
+
+[node name="custom_button" type="Button" parent="." unique_id=1937826538]
+offset_left = -128.0
+offset_top = 176.0
+offset_right = 128.0
+offset_bottom = 248.0
+theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.9490196, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+disabled = true
+text = "CUSTOM"
+flat = true
+
+[node name="exit" type="Button" parent="." unique_id=675586772]
+offset_left = -72.0
+offset_top = 264.0
+offset_right = 72.0
+offset_bottom = 336.0
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+flat = true
+script = ExtResource("3_ylpcl")
+
+[node name="Credits" type="Label" parent="." unique_id=300546651]
+offset_left = -936.0
+offset_top = 488.0
+offset_right = -707.0
+offset_bottom = 519.0
+theme_override_font_sizes/font_size = 24
+text = "Zain Light // v0.0"
+
+[node name="Title" type="Node2D" parent="." unique_id=266445443]
+
+[node name="Background_Particles" type="GPUParticles2D" parent="Title" unique_id=1104986113]
+visible = false
+position = Vector2(0, -192)
+amount = 500
+texture = SubResource("GradientTexture2D_cx167")
+visibility_rect = Rect2(-600, -350, 1200, 700)
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_dolsu")
+script = ExtResource("4_cx167")
+
+[node name="Center" type="Sprite2D" parent="Title" unique_id=1819759016]
+position = Vector2(0, -192)
+scale = Vector2(3, 3)
+texture = SubResource("GradientTexture2D_ylpcl")
+
+[node name="ORBIT" type="Label" parent="Title" unique_id=1743623324]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -256.0
+offset_right = 128.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "ORBIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="play_button" to="play_button" method="_on_pressed"]
+[connection signal="pressed" from="settings_button" to="settings_button" method="_on_pressed"]
+[connection signal="pressed" from="custom_button" to="custom_button" method="_on_pressed"]
+[connection signal="pressed" from="exit" to="exit" method="_on_pressed"]
