@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dicq3rld6gx6s" path="res://assets/scripts/background_particles.gd" id="3_wfsp4"]
 [ext_resource type="Script" uid="uid://dw6dbn3wqcs7j" path="res://assets/scripts/path.gd" id="4_pw37s"]
 [ext_resource type="Script" uid="uid://cetace34bvkm2" path="res://assets/scripts/player.gd" id="5_k2t1h"]
+[ext_resource type="Script" uid="uid://dtxaj2lnjkl8v" path="res://assets/scripts/arc_gen.gd" id="5_wfsp4"]
 [ext_resource type="Script" uid="uid://oxsxvfqswgwb" path="res://assets/scripts/trail.gd" id="6_phsto"]
 
 [sub_resource type="Gradient" id="Gradient_7jktm"]
@@ -196,6 +197,7 @@ script = ExtResource("2_3w2km")
 
 [node name="Background_Particles" type="GPUParticles2D" parent="." unique_id=650200823]
 visible = false
+z_index = -3
 amount = 500
 texture = SubResource("GradientTexture2D_80nbo")
 visibility_rect = Rect2(-600, -350, 1200, 700)
@@ -215,26 +217,29 @@ text = " | | "
 script = ExtResource("3_3w2km")
 
 [node name="Center" type="Sprite2D" parent="." unique_id=1812804610]
+z_index = 1
 scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_w1xah")
 
 [node name="Arc_gen" type="Node2D" parent="Center" unique_id=1753907279]
 scale = Vector2(0.6666667, 0.6666667)
+script = ExtResource("5_wfsp4")
 
-[node name="Score" type="Label" parent="Center" unique_id=1147555625]
+[node name="Score" type="Label" parent="Center/Arc_gen" unique_id=1147555625]
+z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.00002
-offset_top = -114.000015
-offset_right = 5.999954
-offset_bottom = -14.000015
+offset_left = -70.0
+offset_top = -50.0
+offset_right = 69.99997
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "999"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
