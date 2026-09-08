@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b313td0lsaguy" path="res://assets/scripts/pause.gd" id="1_5aext"]
 [ext_resource type="Script" uid="uid://d02g512s2tlo0" path="res://assets/scripts/buttons/home.gd" id="2_3w2km"]
 [ext_resource type="Script" uid="uid://bp1igv8dts5ml" path="res://assets/scripts/buttons/pause_button.gd" id="3_3w2km"]
+[ext_resource type="Script" uid="uid://b4dqyniahybqq" path="res://assets/scripts/buttons/restart_button.gd" id="3_pw37s"]
 [ext_resource type="Script" uid="uid://dicq3rld6gx6s" path="res://assets/scripts/background_particles.gd" id="3_wfsp4"]
 [ext_resource type="Script" uid="uid://dw6dbn3wqcs7j" path="res://assets/scripts/path.gd" id="4_pw37s"]
 [ext_resource type="Script" uid="uid://cetace34bvkm2" path="res://assets/scripts/player.gd" id="5_k2t1h"]
@@ -122,6 +123,77 @@ text = "EXIT"
 flat = true
 script = ExtResource("2_3w2km")
 
+[node name="Game_Over" type="CanvasLayer" parent="." unique_id=1765616071]
+process_mode = 3
+visible = false
+
+[node name="Control" type="Control" parent="Game_Over" unique_id=1965345877]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
+
+[node name="BG_Blur" type="ColorRect" parent="Game_Over/Control" unique_id=53862776]
+layout_mode = 0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 0.6117647)
+
+[node name="Crash_Text" type="Label" parent="Game_Over/Control" unique_id=312114390]
+layout_mode = 0
+offset_left = -260.0
+offset_top = -310.0
+offset_right = 260.0
+offset_bottom = -210.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hi_Score" type="Label" parent="Game_Over/Control" unique_id=991899845]
+layout_mode = 0
+offset_left = -240.0
+offset_top = -210.0
+offset_right = 240.0
+offset_bottom = -110.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "HIGH SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart_Button" type="Button" parent="Game_Over/Control" unique_id=1414284338]
+layout_mode = 0
+offset_left = -160.0
+offset_top = 150.0
+offset_right = 160.0
+offset_bottom = 230.0
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "RESTART"
+flat = true
+script = ExtResource("3_pw37s")
+
+[node name="home" type="Button" parent="Game_Over/Control" unique_id=1718658952]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 280.0
+offset_right = 100.0
+offset_bottom = 350.0
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "EXIT"
+flat = true
+script = ExtResource("2_3w2km")
+
 [node name="Background_Particles" type="GPUParticles2D" parent="." unique_id=650200823]
 visible = false
 amount = 500
@@ -167,7 +239,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Path" type="Line2D" parent="Center" unique_id=239405757]
-visible = false
 z_index = -2
 scale = Vector2(0.6666667, 0.6666667)
 closed = true
@@ -198,4 +269,6 @@ trail_color = Color(0, 0.8, 0, 0.9019608)
 shape = SubResource("CircleShape2D_7ax5b")
 
 [connection signal="pressed" from="PauseMenu/Control/home" to="PauseMenu/Control/home" method="_on_pressed"]
+[connection signal="pressed" from="Game_Over/Control/Restart_Button" to="Game_Over/Control/Restart_Button" method="_on_pressed"]
+[connection signal="pressed" from="Game_Over/Control/home" to="Game_Over/Control/home" method="_on_pressed"]
 [connection signal="pressed" from="Camera2D/Pause_Button" to="PauseMenu" method="_on_pause_button_pressed"]
