@@ -173,7 +173,7 @@ func update_score_label() -> void:
 	if high_score_label:
 		high_score_label.text = "High Score: " + str(high_score)
 		
-	Engine.time_scale = minf(1.0 + (float(score) / 100.0), 6.0)
+	Engine.time_scale = minf(1.0 + (float(score) / 100.0), 2)
 
 func _draw() -> void:
 	for arc in hazards:

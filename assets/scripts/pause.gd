@@ -18,3 +18,6 @@ func resume_game() -> void:
 
 func _on_pause_button_pressed() -> void:
 	toggle_pause()
+
+func _on_resume_button_pressed() -> void:
+	resume_game()
